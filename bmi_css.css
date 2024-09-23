@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #56ab2f, #a8e063);
+    color: black;
+    transition: background-color 0.5s;
+}
+
+.header {
+    background-color: #ff5e62;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.headbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.headbar a:hover {
+    color: #fad0c4;
+}
+
+.wrapper {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    color: black;
+    margin-top: 120px; /* Adjust for header height */
+}
+
+.wrapper h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: black;
+    transition: background-color 0.3s ease;
+}
+
+.input-group input::placeholder {
+    color: black;
+}
+
+.input-group input:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.error-message {
+    color: #ff4b5c;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: left;
+    position: absolute;
+    top: 65px;
+}
+
+button {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 16px;
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+button:hover {
+    background: linear-gradient(to right, #5b86e5, #36d1dc);
+}
+
+#output {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 400px) {
+    .wrapper {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .wrapper h1 {
+        font-size: 22px;
+    }
+
+    button {
+        padding: 10px 15px;
+    }
+}

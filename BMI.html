@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health-Focused BMI Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #56ab2f, #a8e063);
+            color: black;
+            transition: background-color 0.5s;
+        }
+
+        /* Header Styles */
+        header {
+            height: 60px; /* Reduced height */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            padding: 1rem 5%; /* Reduced padding */
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0.5rem 1.5rem rgba(0, 0, 0, .1);
+        }
+
+        header .logo img {
+            height: 40px; /* Reduced logo size */
+            width: auto;
+        }
+
+        /* Nav Bar Styles */
+        header .headbar {
+            display: flex;
+            gap: 1rem; /* Smaller gap between nav links */
+        }
+
+        header .headbar a {
+            padding: 0.5rem 1rem; /* Reduced padding inside links */
+            font-size: 1.2rem; /* Reduced font size */
+            border-radius: 5rem;
+            color: #666;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        header .headbar a:hover {
+            color: #fff;
+            background: linear-gradient(120deg, #388E3C, #45a049);
+        }
+
+
+        .wrapper {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            color: black;
+            margin-top: 120px; /* Adjust for header height */
+        }
+
+        .wrapper h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: black;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-group input::placeholder {
+            color: black;
+        }
+
+        .input-group input:focus {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .error-message {
+            color: #ff4b5c;
+            font-size: 12px;
+            margin-top: 5px;
+            text-align: left;
+            position: absolute;
+            top: 65px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px 0;
+            font-size: 16px;
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #5b86e5, #36d1dc);
+        }
+
+        #output {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 400px) {
+            .wrapper {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .wrapper h1 {
+                font-size: 22px;
+            }
+
+            button {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <a href="assignment.html" class="logo">
+            <img src="picture/wall.jpg" alt="Company Logo">
+        </a>
+        <nav class="headbar">
+            <a href="index.html">Home</a>
+            <a href="health info page.html">Health Info</a>
+            <a href="bmi.html">BMI</a>
+        </nav>
+        
+    </header>
+    
+    <!-- Main content -->
+    <div class="wrapper">
+        <h1>BMI Calculator</h1>
+        <p>Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. View the BMI tables or use the tool below to compute yours.</p>
+
+        <div class="input-group">
+            <label for="height">Height (in CM)</label>
+            <input type="number" id="height" placeholder="Enter your height" aria-label="Height in centimeters" min="0">
+            <span class="error-message" id="height_error"></span>
+        </div>
+
+        <div class="input-group">
+            <label for="weight">Weight (in KG)</label>
+            <input type="number" id="weight" placeholder="Enter your weight" aria-label="Weight in kilograms" min="0">
+            <span class="error-message" id="weight_error"></span>
+        </div>
+
+        <button id="btn">Calculate</button>
+        <p id="output" aria-live="polite"></p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.4.0/confetti.min.js"></script>
+    <script>
+        document.getElementById('btn').addEventListener('click', function () {
+            let height = document.getElementById('height').value;
+            let weight = document.getElementById('weight').value;
+            let heightError = document.getElementById('height_error');
+            let weightError = document.getElementById('weight_error');
+            let output = document.getElementById('output');
+
+            heightError.textContent = '';
+            weightError.textContent = '';
+            output.textContent = '';
+
+            if (!height || height <= 0) {
+                heightError.textContent = 'Please enter a valid height in centimeters.';
+                return;
+            }
+
+            if (!weight || weight <= 0) {
+                weightError.textContent = 'Please enter a valid weight in kilograms.';
+                return;
+            }
+
+            height = height / 100;
+            let bmi = (weight / (height * height)).toFixed(2);
+
+            output.textContent = `Your BMI is ${bmi}.`;
+
+            if (bmi < 18.5) {
+                output.textContent += " You are underweight. Have a slice of cake!";
+                document.body.style.backgroundColor = "#FFD700"; // Gold
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                output.textContent += " You have a normal weight. Keep up the great work!";
+                document.body.style.backgroundColor = "#90EE90"; // Light Green
+            } else if (bmi >= 25 && bmi < 29.9) {
+                output.textContent += " You are overweight. How about a little more jogging?";
+                document.body.style.backgroundColor = "#FFA07A"; // Light Salmon
+            } else {
+                output.textContent += " You are obese. Time for a health check!";
+                document.body.style.backgroundColor = "#FF6347"; // Tomato
+            }
+
+            confetti(); // Trigger confetti effect
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* General Body Styling */
+body {
+    font-family: 'Andika', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #ff5e62;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.headbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.headbar a:hover {
+    color: #fad0c4;
+}
+
+/* Main Section */
+.main-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* Left section styling */
+.left {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.left h1 {
+    font-size: 28px;
+    color: #ff5e62;
+}
+
+.left p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Right section styling */
+.right img {
+    width: 400px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #ff5e62;
+    color: white;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

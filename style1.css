@@ -1,0 +1,153 @@
+/* General Styles */
+body {
+    font-family: 'Andika', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header Styles */
+header {
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 2rem 9%;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+header .logo img {
+    height: auto;
+    width: 30px;
+}
+
+header .headbar {
+    display: flex;
+    gap: 1.5rem;
+}
+
+header .headbar a {
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    border-radius: 5rem;
+    color: #444;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+header .headbar a:hover {
+    color: #ffffff;
+    background: linear-gradient(120deg, #ff7e5f, #feb47b);
+}
+
+/* Health Info Section */
+.health-info {
+    margin-top: 120px; /* To adjust for fixed header */
+    padding: 3rem 10%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.health-info h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #ff7e5f;
+    border-bottom: 2px solid #feb47b;
+    padding-bottom: 0.5rem;
+}
+
+.health-info h2 {
+    font-size: 2.2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.health-info p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.health-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.health-info ul li {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #f0f8ff;
+    border-left: 5px solid #ff7e5f;
+    transition: transform 0.2s;
+}
+
+.health-info ul li:hover {
+    transform: translateX(5px);
+}
+
+.health-info a {
+    color: #0070fa;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.health-info a:hover {
+    text-decoration: underline;
+    color: #ff7e5f;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .health-info {
+        padding: 2rem 5%;
+    }
+
+    header .headbar a {
+        font-size: 1.4rem;
+    }
+
+    .health-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .health-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .health-info p,
+    .health-info ul li {
+        font-size: 1.4rem;
+    }
+}
+/* Card Styles */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: center; /* Centers content inside card, including the image */
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+    display: inline-block; /* Makes the image respect text alignment */
+    width: 50%; /* Keep the image full width or adjust as necessary */
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
